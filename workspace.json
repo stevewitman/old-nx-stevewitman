@@ -258,6 +258,135 @@
           }
         }
       }
+    },
+    "linkr-dot-me": {
+      "projectType": "application",
+      "root": "apps/linkr-dot-me",
+      "sourceRoot": "apps/linkr-dot-me/src",
+      "prefix": "nx-stevewitman",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/linkr-dot-me",
+            "index": "apps/linkr-dot-me/src/index.html",
+            "main": "apps/linkr-dot-me/src/main.ts",
+            "polyfills": "apps/linkr-dot-me/src/polyfills.ts",
+            "tsConfig": "apps/linkr-dot-me/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/linkr-dot-me/src/favicon.ico",
+              "apps/linkr-dot-me/src/assets"
+            ],
+            "styles": [
+              "apps/linkr-dot-me/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/linkr-dot-me/src/environments/environment.ts",
+                  "with": "apps/linkr-dot-me/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "linkr-dot-me:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "linkr-dot-me:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "linkr-dot-me:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/linkr-dot-me/tsconfig.app.json",
+              "apps/linkr-dot-me/tsconfig.spec.json",
+              "apps/linkr-dot-me/tsconfig.editor.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/linkr-dot-me/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/linkr-dot-me"
+          ],
+          "options": {
+            "jestConfig": "apps/linkr-dot-me/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "linkr-dot-me-e2e": {
+      "root": "apps/linkr-dot-me-e2e",
+      "sourceRoot": "apps/linkr-dot-me-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/linkr-dot-me-e2e/cypress.json",
+            "tsConfig": "apps/linkr-dot-me-e2e/tsconfig.e2e.json",
+            "devServerTarget": "linkr-dot-me:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "linkr-dot-me:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/linkr-dot-me-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/linkr-dot-me-e2e/**/*"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

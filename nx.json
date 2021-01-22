@@ -36,6 +36,13 @@
     "ngnuggets-dot-com-e2e": {
       "tags": [],
       "implicitDependencies": ["ngnuggets-dot-com"]
+    },
+    "linkr-dot-me": {
+      "tags": []
+    },
+    "linkr-dot-me-e2e": {
+      "tags": [],
+      "implicitDependencies": ["linkr-dot-me"]
     }
   }
 }
