@@ -22,5 +22,13 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "stevewitman-dot-com": {
+      "tags": []
+    },
+    "stevewitman-dot-com-e2e": {
+      "tags": [],
+      "implicitDependencies": ["stevewitman-dot-com"]
+    }
+  }
 }
