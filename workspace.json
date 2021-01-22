@@ -129,6 +129,135 @@
           }
         }
       }
+    },
+    "ngnuggets-dot-com": {
+      "projectType": "application",
+      "root": "apps/ngnuggets-dot-com",
+      "sourceRoot": "apps/ngnuggets-dot-com/src",
+      "prefix": "nx-stevewitman",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ngnuggets-dot-com",
+            "index": "apps/ngnuggets-dot-com/src/index.html",
+            "main": "apps/ngnuggets-dot-com/src/main.ts",
+            "polyfills": "apps/ngnuggets-dot-com/src/polyfills.ts",
+            "tsConfig": "apps/ngnuggets-dot-com/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/ngnuggets-dot-com/src/favicon.ico",
+              "apps/ngnuggets-dot-com/src/assets"
+            ],
+            "styles": [
+              "apps/ngnuggets-dot-com/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ngnuggets-dot-com/src/environments/environment.ts",
+                  "with": "apps/ngnuggets-dot-com/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngnuggets-dot-com:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngnuggets-dot-com:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngnuggets-dot-com:build"
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ngnuggets-dot-com/tsconfig.app.json",
+              "apps/ngnuggets-dot-com/tsconfig.spec.json",
+              "apps/ngnuggets-dot-com/tsconfig.editor.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ngnuggets-dot-com/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/ngnuggets-dot-com"
+          ],
+          "options": {
+            "jestConfig": "apps/ngnuggets-dot-com/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ngnuggets-dot-com-e2e": {
+      "root": "apps/ngnuggets-dot-com-e2e",
+      "sourceRoot": "apps/ngnuggets-dot-com-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ngnuggets-dot-com-e2e/cypress.json",
+            "tsConfig": "apps/ngnuggets-dot-com-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ngnuggets-dot-com:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngnuggets-dot-com:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/ngnuggets-dot-com-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ngnuggets-dot-com-e2e/**/*"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

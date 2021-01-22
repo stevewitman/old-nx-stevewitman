@@ -29,6 +29,13 @@
     "stevewitman-dot-com-e2e": {
       "tags": [],
       "implicitDependencies": ["stevewitman-dot-com"]
+    },
+    "ngnuggets-dot-com": {
+      "tags": []
+    },
+    "ngnuggets-dot-com-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ngnuggets-dot-com"]
     }
   }
 }
