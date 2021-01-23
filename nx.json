@@ -1,14 +1,9 @@
 {
   "npmScope": "nx-stevewitman",
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "master" },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -17,32 +12,25 @@
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
+      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
   "projects": {
-    "stevewitman-dot-com": {
-      "tags": []
-    },
+    "stevewitman-dot-com": { "tags": [] },
     "stevewitman-dot-com-e2e": {
       "tags": [],
       "implicitDependencies": ["stevewitman-dot-com"]
     },
-    "ngnuggets-dot-com": {
-      "tags": []
-    },
+    "ngnuggets-dot-com": { "tags": [] },
     "ngnuggets-dot-com-e2e": {
       "tags": [],
       "implicitDependencies": ["ngnuggets-dot-com"]
     },
-    "linkr-dot-me": {
-      "tags": []
-    },
+    "linkr-dot-me": { "tags": [] },
     "linkr-dot-me-e2e": {
       "tags": [],
       "implicitDependencies": ["linkr-dot-me"]
-    }
+    },
+    "shared-material": { "tags": [] }
   }
 }

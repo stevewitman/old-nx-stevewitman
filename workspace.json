@@ -21,6 +21,7 @@
               "apps/stevewitman-dot-com/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/stevewitman-dot-com/src/styles.scss"
             ],
             "scripts": []
@@ -384,6 +385,37 @@
               "**/node_modules/**",
               "!apps/linkr-dot-me-e2e/**/*"
             ]
+          }
+        }
+      }
+    },
+    "shared-material": {
+      "projectType": "library",
+      "root": "libs/shared/material",
+      "sourceRoot": "libs/shared/material/src",
+      "prefix": "nx-stevewitman",
+      "targets": {
+        "lint": {
+          "executor": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/material/tsconfig.lib.json",
+              "libs/shared/material/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/material/**/*"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/material"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/material/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
